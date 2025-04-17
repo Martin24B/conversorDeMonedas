@@ -10,12 +10,12 @@
 
 # 📑 Índice
 
-1. 📌 [Descripción del Proyecto](#📌-Descripción-del-Proyecto)
-2. 🧩 [Características Principales](#🧩-Características-Principales)
-3. ⚙️ [Tutorial de Instalación](#⚙️-Tutorial-de-Instalación)
-4. 📚 [Documentación Adicional](#📚-Documentación-Adicional)
-5. 🚧 [Próximas Actualizaciones](#🚧-Próximas-Actualizaciones)
-6. 👥 [Autores](#👥-Autores)
+1. 📌 [Descripción del Proyecto](#descripción-del-proyecto)
+2. 🧩 [Características Principales](#características-principales)
+3. ⚙️ [Tutorial de Instalación](#tutorial-de-instalación)
+4. 📚 [Documentación Adicional](#documentación-adicional)
+5. 🚧 [Próximas Actualizaciones](#próximas-actualizaciones)
+6. 👥 [Autores](#autores)
 
 ## 📌 Descripción del Proyecto
 
@@ -48,7 +48,7 @@ Una vez alcanzado dicho límite, el acceso a la API será bloqueado hasta el ini
 </div>
 
 <p align="center">
-  <img src="ConversorDeMonedas/img/config.java.png" alt="Configuración API Key en Config.java" width="600"/>
+  <img src="conversorDeMonedas/img/config.java.png" alt="Configuración API Key en Config.java" width="600"/>
 </p>
 
 ### 🚀 Funciones Gratuitas y Premium
@@ -83,41 +83,41 @@ La aplicación incluye un **historial de operaciones**, separado por fecha (por 
 ### 🖼 Vista de la Aplicación
 
 <p align="center">
-  <img src="ConversorDeMonedas/img/inicio.png" alt="Pantalla de inicio" width="600"/>
+  <img src="conversorDeMonedas/img/inicio.png" alt="Pantalla de inicio" width="600"/>
 </p>
 
 <p align="center">
-  <img src="ConversorDeMonedas/img/operaciones.png" alt="Operaciones de cambio" width="600"/>
+  <img src="conversorDeMonedas/img/operaciones.png" alt="Operaciones de cambio" width="600"/>
 </p>
 
 <p align="center">
-  <img src="ConversorDeMonedas/img/operacionesDelHistorial.png" alt="Historial de conversiones" width="600"/>
+  <img src="conversorDeMonedas/img/operacionesDelHistorial.png" alt="Historial de conversiones" width="600"/>
 </p>
 
 ## 🧪 Ejemplo de Uso
 
 - **`latest`** 
 <p align="center">
-  <img src="ConversorDeMonedas/img/primeraConsulta.png" alt="Consulta con latest" width="600"/>
+  <img src="conversorDeMonedas/img/primeraConsulta.png" alt="Consulta con latest" width="600"/>
 </p>
 
 - **`codes`** 
 <p align="center">
-  <img src="ConversorDeMonedas/img/secundaConsulta.png" alt="Consulta con codes" width="600"/>
+  <img src="conversorDeMonedas/img/secundaConsulta.png" alt="Consulta con codes" width="600"/>
 </p>
 
 - **`pair`** 
 <p align="center">
-  <img src="ConversorDeMonedas/img/terceraConsulta(I).png" alt="Consulta pair sin monto" width="600"/>
+  <img src="conversorDeMonedas/img/terceraConsulta(I).png" alt="Consulta pair sin monto" width="600"/>
 </p>
 
 <p align="center">
-  <img src="ConversorDeMonedas/img/terceraConsulta(II).png" alt="Consulta pair con monto" width="600"/>
+  <img src="conversorDeMonedas/img/terceraConsulta(II).png" alt="Consulta pair con monto" width="600"/>
 </p>
 
 - **`quota`** 
 <p align="center">
-  <img src="ConversorDeMonedas/img/cuartaConsulta.png" alt="Consulta de cuota actual" width="600"/>
+  <img src="conversorDeMonedas/img/cuartaConsulta.png" alt="Consulta de cuota actual" width="600"/>
 </p>
 
 ## ⚙️ Tutorial de Instalación
