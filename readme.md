@@ -8,16 +8,16 @@
   <img src="https://img.shields.io/badge/actualización-2025--04--15-brightgreen" />
 </p>
 
-# 📑 Índice
+# Índice
 
-1. 📌 [Descripción del Proyecto](#descripción-del-proyecto)
-2. 🧩 [Características Principales](#características-principales)
-3. ⚙️ [Tutorial de Instalación](#tutorial-de-instalación)
-4. 📚 [Documentación Adicional](#documentación-adicional)
-5. 🚧 [Próximas Actualizaciones](#próximas-actualizaciones)
-6. 👥 [Autores](#autores)
+1. [Descripción del Proyecto](#descripción-del-proyecto)  
+2. [Características Principales](#características-principales)  
+3. [Tutorial de Instalación](#tutorial-de-instalación)  
+4. [Documentación Adicional](#documentación-adicional)  
+5. [Próximas Actualizaciones](#próximas-actualizaciones)  
+6. [Autores](#autores)
 
-## 📌 Descripción del Proyecto
+## Descripción del Proyecto
 
 <div align="justify">
 
@@ -27,7 +27,7 @@ La aplicación desarrollada es un **Conversor de Divisas en Tiempo Real**, dise�
 
 </div>
 
-## 🧩 Características Principales
+## Características Principales
 
 <div align="justify">
 
@@ -35,7 +35,7 @@ La aplicación obtiene sus datos a través de la API de **ExchangeRate** (dispon
 
 </div>
 
-### 🔐 Control de Solicitudes
+### Control de Solicitudes
 
 <div align="justify">
 
@@ -48,10 +48,10 @@ Una vez alcanzado dicho límite, el acceso a la API será bloqueado hasta el ini
 </div>
 
 <p align="center">
-  <img src="conversorDeMonedas/img/config.java.png" alt="Configuración API Key en Config.java" width="600"/>
+  <img src="conversorDeMonedas/img/config.png" alt="Configuración API Key en Config.java" width="600"/>
 </p>
 
-### 🚀 Funciones Gratuitas y Premium
+### Funciones Gratuitas y Premium
 
 <div align="justify">
 
@@ -59,17 +59,17 @@ La API de ExchangeRate ofrece tanto **funciones gratuitas** como **funcionalidad
 
 </div>
 
-## ✅ Funcionalidades Disponibles
+## Funcionalidades Disponibles
 
 <div align="justify">
 
 Las funcionalidades disponibles en la aplicación permiten al usuario consumir una variedad de recursos de la API a través de **cuatro endpoints principales**:
 
-- **`latest`**: Tasa de cambio actual de una moneda con respecto a todas las demás. 
-- **`codes`**: Lista completa de monedas activas. 
-- **`pair`**: 
-  - Tasa entre dos monedas. 
-  - Tasa + monto para calcular equivalencias. 
+- **`latest`**: Tasa de cambio actual de una moneda con respecto a todas las demás.  
+- **`codes`**: Lista completa de monedas activas.  
+- **`pair`**:  
+  - Tasa entre dos monedas.  
+  - Tasa + monto para calcular equivalencias.  
 - **`quota`**: Estado de solicitudes disponibles para el usuario.
 
 </div>
@@ -80,77 +80,80 @@ La aplicación incluye un **historial de operaciones**, separado por fecha (por 
 
 </div>
 
-### 🖼 Vista de la Aplicación
+### Vista de la Aplicación
 
+- **`Mensaje de inicio`**
 <p align="center">
   <img src="conversorDeMonedas/img/inicio.png" alt="Pantalla de inicio" width="600"/>
 </p>
 
+- **`Operaciones disponibles`**
 <p align="center">
   <img src="conversorDeMonedas/img/operaciones.png" alt="Operaciones de cambio" width="600"/>
 </p>
 
+- **`Operaciones del historial`**
 <p align="center">
   <img src="conversorDeMonedas/img/operacionesDelHistorial.png" alt="Historial de conversiones" width="600"/>
 </p>
 
-## 🧪 Ejemplo de Uso
+## Ejemplo de Uso
 
-- **`latest`** 
+- **`latest`**  
 <p align="center">
-  <img src="conversorDeMonedas/img/primeraConsulta.png" alt="Consulta con latest" width="600"/>
+  <img src="conversorDeMonedas/img/primerConsulta.png" alt="Consulta con latest" width="600"/>
 </p>
 
-- **`codes`** 
+- **`codes`**  
 <p align="center">
-  <img src="conversorDeMonedas/img/secundaConsulta.png" alt="Consulta con codes" width="600"/>
+  <img src="conversorDeMonedas/img/segundaConsulta.png" alt="Consulta con codes" width="600"/>
 </p>
 
-- **`pair`** 
+- **`pair`**  
 <p align="center">
-  <img src="conversorDeMonedas/img/terceraConsulta(I).png" alt="Consulta pair sin monto" width="600"/>
+  <img src="conversorDeMonedas/img/tercerConsulta(I).png" alt="Consulta pair sin monto" width="600"/>
 </p>
 
 <p align="center">
-  <img src="conversorDeMonedas/img/terceraConsulta(II).png" alt="Consulta pair con monto" width="600"/>
+  <img src="conversorDeMonedas/img/tercerConsulta(II).png" alt="Consulta pair con monto" width="600"/>
 </p>
 
-- **`quota`** 
+- **`quota`**  
 <p align="center">
   <img src="conversorDeMonedas/img/cuartaConsulta.png" alt="Consulta de cuota actual" width="600"/>
 </p>
 
-## ⚙️ Tutorial de Instalación
+## Tutorial de Instalación
 
 <div align="justify">
 
-1. Instalar un IDE compatible con Java (Eclipse, VS Code). 
-2. Instalar Java Development Kit (JDK 21 recomendado). 
-3. Clonar o descargar este repositorio. 
-4. Importar como proyecto Java existente en el IDE. 
-5. Ejecutar `Main.java` dentro del paquete `app`. 
-6. Acceder al historial en la carpeta `History` dentro del directorio `users`. 
+1. Instalar un IDE compatible con Java (Eclipse, VS Code).  
+2. Instalar Java Development Kit (JDK 21 recomendado).  
+3. Clonar o descargar este repositorio.  
+4. Importar como proyecto Java existente en el IDE.  
+5. Ejecutar `Main.java` dentro del paquete `app`.  
+6. Acceder al historial en la carpeta `History` dentro del directorio `users`.  
 7. La dependencia **Gson** ya está incluida en el proyecto, no se requieren configuraciones adicionales.
 
 </div>
 
-## 📚 Documentación Adicional
+## Documentación Adicional
 
 <div align="justify">
 
-- 📄 [Documentación técnica oficial](https://www.exchangerate-api.com/docs/overview) 
-- 📝 [Crear cuenta personal (ApiKey)](https://app.exchangerate-api.com/sign-up) 
-- 💼 [Planes y servicios premium](https://www.exchangerate-api.com/#pricing) 
+- [Documentación técnica oficial](https://www.exchangerate-api.com/docs/overview)  
+- [Crear cuenta personal (ApiKey)](https://app.exchangerate-api.com/sign-up)  
+- [Planes y servicios premium](https://www.exchangerate-api.com/#pricing)
 
 </div>
 
-## 🚧 Próximas Actualizaciones
+## Próximas Actualizaciones
 
-- Para resolver el problema de dependencia en los usuarios que comparten una misma clave y un mismo límite de quota, se implementará un método de autenticación llamado **Token Bearer**. 
-- Por el momento el proyecto es solo backend, pero se piensa desarrollar una interfaz de usuario para evitar tener que interactuar siempre desde consola. 
+- Para resolver el problema de dependencia en los usuarios que comparten una misma clave y un mismo límite de quota, se implementará un método de autenticación llamado **Token Bearer**.  
+- Por el momento el proyecto es solo backend, pero se piensa desarrollar una interfaz de usuario para evitar tener que interactuar siempre desde consola.  
 - Se ofrecerán mejoras en la estructura y el modo de organización del historial de los usuarios.
 
-## 👥 Autores
+## Autores
 
 Proyecto desarrollado por **Martín Lorenzi**.  
 Contacto: [alorenzi@alumnos.exa.unicen.edu.ar](mailto:alorenzi@alumnos.exa.unicen.edu.ar)  
