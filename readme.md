@@ -84,17 +84,17 @@ La aplicación incluye un **historial de operaciones**, separado por fecha (por 
 
 - **`Mensaje de inicio`**
 <p align="center">
-  <img src="conversorDeMonedas/img/inicio.png" alt="Pantalla de inicio" width="600"/>
+  <img src="conversorDeMonedas/img/inicio.png" alt="Pantalla de inicio" width="400"/>
 </p>
 
 - **`Operaciones disponibles`**
 <p align="center">
-  <img src="conversorDeMonedas/img/operaciones.png" alt="Operaciones de cambio" width="600"/>
+  <img src="conversorDeMonedas/img/operaciones.png" alt="Operaciones de cambio" width="400"/>
 </p>
 
 - **`Operaciones del historial`**
 <p align="center">
-  <img src="conversorDeMonedas/img/operacionesDelHistorial.png" alt="Historial de conversiones" width="600"/>
+  <img src="conversorDeMonedas/img/operacionesDelHistorial.png" alt="Historial de conversiones" width="400"/>
 </p>
 
 ## Ejemplo de Uso
@@ -111,11 +111,11 @@ La aplicación incluye un **historial de operaciones**, separado por fecha (por 
 
 - **`pair`**  
 <p align="center">
-  <img src="conversorDeMonedas/img/tercerConsulta(I).png" alt="Consulta pair sin monto" width="600"/>
+  <img src="conversorDeMonedas/img/tercerConsulta(1).png" alt="Consulta pair sin monto" width="600"/>
 </p>
 
 <p align="center">
-  <img src="conversorDeMonedas/img/tercerConsulta(II).png" alt="Consulta pair con monto" width="600"/>
+  <img src="conversorDeMonedas/img/tercerConsulta(2).png" alt="Consulta pair con monto" width="600"/>
 </p>
 
 - **`quota`**  
