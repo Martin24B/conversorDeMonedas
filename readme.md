@@ -150,9 +150,8 @@ La aplicación incluye un **historial de operaciones**, separado por fecha (por 
 - Por el momento el proyecto es solo backend, pero se piensa desarrollar una interfaz de usuario para evitar tener que interactuar siempre desde consola. 
 - Se ofrecerán mejoras en la estructura y el modo de organización del historial de los usuarios.
 
-# 👥 Autores
+## 👥 Autores
 
-Proyecto desarrollado por **Martín Lorenzi**. 
-Contacto: [alorenzi@alumnos.exa.unicen.edu.ar](mailto:alorenzi@alumnos.exa.unicen.edu.ar) 
+Proyecto desarrollado por **Martín Lorenzi**.  
+Contacto: [alorenzi@alumnos.exa.unicen.edu.ar](mailto:alorenzi@alumnos.exa.unicen.edu.ar)  
 Perfil en LinkedIn: [Martín Lorenzi - LinkedIn]()
-
