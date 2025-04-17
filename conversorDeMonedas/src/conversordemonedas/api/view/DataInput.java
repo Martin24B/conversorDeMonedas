@@ -1,12 +1,10 @@
 package conversordemonedas.api.view;
 
 import java.util.Scanner;
-
 import conversordemonedas.api.connection.Endpoint;
 import conversordemonedas.api.data.Coins;
 
 public class DataInput {
-
 	private static final Scanner scanner = new Scanner(System.in);
 
 	public static int selectEndpoint() {
@@ -27,7 +25,7 @@ public class DataInput {
 		return opcion - 1;
 	}
 
-	public static int selectOptionResource(int opcion) {
+	public static int selectResourceOption(int opcion) {
 		int opcion2 = 0;
 
 		if (Endpoint.endpointIsPair(opcion)) {
@@ -46,6 +44,65 @@ public class DataInput {
 		}
 
 		return opcion2;
+	}
+
+	public static int selectOption() {
+	    int option = -1;
+
+	    while (option < 1 || option > 4) {
+	        System.out.println("🔢 Ingrese una de las opciones disponibles (1-4):");
+
+	        if (scanner.hasNextInt()) {
+	            option = scanner.nextInt();
+	            if (option < 1 || option > 4) {
+	                System.out.println("❌ Opción incorrecta, intente nuevamente.");
+	            }
+	        } else {
+	            System.out.println("⚠️ Entrada no válida. Por favor, ingrese un número.");
+	            scanner.next();
+	        }
+	    }
+
+	    return option;
+	}
+
+	public static int selectOperation() {
+	    int option = -1;
+
+	    while (option < 0 || option > 1) {
+	        System.out.println("🔢 Ingrese '0' para salir, '1' para seguir operando.");
+	        if (scanner.hasNextInt()) {
+	            option = scanner.nextInt();
+	            if (option < 0 || option > 1) {
+	                System.out.println("❌ Opción incorrecta, intente nuevamente.");
+	            }
+	        } else {
+	            System.out.println("⚠️ Entrada no válida. Por favor, ingrese un número.");
+	            scanner.next();
+	        }
+	    }
+
+	    return option;
+	}
+
+	public static int selectHistoryOption () {
+	    int option = -1;
+
+	    while (option < 1 || option > 3) {
+	        System.out.println("🔢 Ingrese una de las opciones disponibles (1-3):");
+
+	        if (scanner.hasNextInt()) {
+	            option = scanner.nextInt();
+	            if (option < 1 || option > 3) {
+	                System.out.println("❌ Opción incorrecta, intente nuevamente.");
+	            }
+	        } else {
+	            System.out.println("⚠️ Entrada no válida. Por favor, ingrese un número.");
+	            scanner.next();
+	        }
+	    }
+
+	    return option;
 	}
 
 	public static String insertEndpoint(int optionEndpoint, int optionResource) {
@@ -113,71 +170,12 @@ public class DataInput {
 		return limit;
 	}
 
-	public static int insertOption() {
-	    int option = -1;
-
-	    while (option < 1 || option > 4) {
-	        System.out.println("🔢 Ingrese una de las opciones disponibles (1-4):");
-
-	        if (scanner.hasNextInt()) {
-	            option = scanner.nextInt();
-	            if (option < 1 || option > 4) {
-	                System.out.println("❌ Opción incorrecta, intente nuevamente.");
-	            }
-	        } else {
-	            System.out.println("⚠️ Entrada no válida. Por favor, ingrese un número.");
-	            scanner.next();
-	        }
-	    }
-
-	    return option;
-	}
-	
-	public static int insertOperation () {
-	    int option = -1;
-
-	    while (option < 0 || option > 1) {
-	        System.out.println("🔢 Ingrese '0' para salir, '1' para seguir operando.");
-	        if (scanner.hasNextInt()) {
-	            option = scanner.nextInt();
-	            if (option < 0 || option > 1) {
-	                System.out.println("❌ Opción incorrecta, intente nuevamente.");
-	            }
-	        } else {
-	            System.out.println("⚠️ Entrada no válida. Por favor, ingrese un número.");
-	            scanner.next();
-	        }
-	    }
-
-	    return option;
-	}
-	
-	public static int insertOptionHistory () {
-	    int option = -1;
-
-	    while (option < 1 || option > 3) {
-	        System.out.println("🔢 Ingrese una de las opciones disponibles (1-3):");
-
-	        if (scanner.hasNextInt()) {
-	            option = scanner.nextInt();
-	            if (option < 1 || option > 3) {
-	                System.out.println("❌ Opción incorrecta, intente nuevamente.");
-	            }
-	        } else {
-	            System.out.println("⚠️ Entrada no válida. Por favor, ingrese un número.");
-	            scanner.next();
-	        }
-	    }
-
-	    return option;
-	}
-	
 	public static String insertFileName() {
 	    String fileName = "";
 
 	    while (fileName.isEmpty()) {
-	        System.out.println("💬 Ingrese el nombre del archivo (sin extensión):");
-	        fileName = scanner.nextLine().trim();
+	        System.out.println("💬 Ingrese el nombre del archivo (sin extensión), ej. '10/04/2024':");
+	        fileName = scanner.next().trim();
 
 	        if (fileName.isEmpty()) {
 	            System.out.println("⚠️ El nombre del archivo no puede estar vacío. Intente nuevamente.");

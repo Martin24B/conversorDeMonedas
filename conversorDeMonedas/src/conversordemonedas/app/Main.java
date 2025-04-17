@@ -1,10 +1,9 @@
 package conversordemonedas.app;
 
 import com.google.gson.Gson;
-
 import conversordemonedas.api.connection.*;
 import conversordemonedas.api.data.*;
-import conversordemonedas.api.user.*;
+import conversordemonedas.api.userData.History;
 import conversordemonedas.api.view.*;
 
 public class Main {
@@ -16,93 +15,94 @@ public class Main {
 
 		while (option != 4) {
 			InfoDisplay.availableOption();
-			option = DataInput.insertOption();
-			procesarOpcion(option);
+			option = DataInput.selectOption();
+			processOption(option);
 		}
+		
+		InfoDisplay.goodbyeMessage();
 	}
 
-	private static void procesarOpcion(int option) {
-		switch (option) {
-		case 1:
+	private static void processOption(int option) {
+		if (option == 1) {
 			InfoDisplay.showHistory(History.returnHistory());
-			break;
-		case 2:
-			eliminarArchivos();
-			break;
-		case 3:
-			realizarSolicitud();
-			break;
+		} else if (option == 2) {
+			deleteFiles();
+		} else if (option == 3) {
+			executeRequest();
 		}
 	}
 
-	private static void eliminarArchivos() {
-		int option = -1;
+	private static void deleteFiles() {
+		int option = 0;
 		String fileName = "";
 
-		while (option != 0) {
-			option = DataInput.insertOptionHistory();
-			if (option == 1)
+		while (option != 3) {
+			InfoDisplay.availableOptionHistory();
+			option = DataInput.selectHistoryOption();
+			if (option == 1) {
 				History.deleteHistory();
-
-			if (option == 2) {
+			} else if (option == 2) {
 				fileName = DataInput.insertFileName();
 				History.deleteHistory(fileName);
 			}
 		}
 	}
 
-	private static void realizarSolicitud() {
-		Client client = new Client();
-		client.sendRequest(Configuration.RESOURCE);
+	private static void executeRequest() {
+		Module jsonModule = JsonData.class.getModule();
+		jsonModule.addOpens("conversordemonedas.api.data", Gson.class.getModule());
+
+		ApiClient client = new ApiClient();
+		client.sendRequest(Config.RESOURCE);
+		Json json = new Json(client.getResponseBody());
+		Coins coins = new Coins(client.getResponseBody());
+
 		int option = -1;
 
 		while (option != 0) {
 			InfoDisplay.availableEndpoints();
-			int optionEndpoint = DataInput.selectEndpoint();
-			int optionResource = DataInput.selectOptionResource(optionEndpoint);
-			responseParser(client, optionResource, optionEndpoint);
-			option = DataInput.insertOperation();
-
-			// se podria preguntar si se desea guardar la operacion en el historial
+			int endpointOption = DataInput.selectEndpoint();
+			int resourceOption = DataInput.selectResourceOption(endpointOption);
+			String response = parseResponse(client, resourceOption, endpointOption, json, coins);
+			History.appendToHistory(response);
+			System.out.println(response);
+			option = DataInput.selectOperation();
 		}
 	}
 
-	private static void responseParser(Client client, int optionResource, int optionEndpoint) {
-		Module jsondata = JsonData.class.getModule();
-		jsondata.addOpens("conversordemonedas.api.data", Gson.class.getModule());
-
-		Json json = new Json(client.getBody());
-		Coins coins = new Coins(client.getBody());
+	private static String parseResponse(ApiClient client, int resourceOption, int endpointOption, Json json, Coins coins) {
 		String endpoint = "";
 
-		if (!Endpoint.endpointIsPair(optionEndpoint)) {
-			if (Endpoint.endpointIsCodes(optionEndpoint)) {
+		if (!Endpoint.endpointIsPair(endpointOption)) {
+			if (Endpoint.endpointIsCodes(endpointOption)) {
 				int limit = DataInput.insertLimit();
-				json.printCoins(coins, limit);
-			} else if (Endpoint.endpointIsQuota(optionEndpoint)) {
+				return InfoDisplay.availableCoins(coins, limit);
+			} else if (Endpoint.endpointIsQuota(endpointOption)) {
 				client.sendRequest(Endpoint.QUOTA.getName());
-				json.setJsonData(client.getBody());
-				Quota quota = new Quota(client.getBody());
-				json.printCuota(quota);
-			} else if (Endpoint.endpointIsLatest(optionEndpoint)) {
-				endpoint = DataInput.insertEndpoint(optionEndpoint, optionResource);
+				json.setJsonData(client.getResponseBody());
+				Quota quota = new Quota(client.getResponseBody());
+				return InfoDisplay.showQuotaDetails(quota);
+			} else if (Endpoint.endpointIsLatest(endpointOption)) {
+				endpoint = DataInput.insertEndpoint(endpointOption, resourceOption);
 				client.sendRequest(endpoint);
-				json.setJsonData(client.getBody());
-				Convertion convertion = new Convertion(client.getBody());
+				json.setJsonData(client.getResponseBody());
+				Convertion conversion = new Convertion(client.getResponseBody());
 				int limit = DataInput.insertLimit();
-				json.printConversionRates(convertion, limit);
+				return InfoDisplay.showConversionRates(conversion, limit);
 			}
 		} else {
-			endpoint = DataInput.insertEndpoint(optionEndpoint, optionResource);
+			endpoint = DataInput.insertEndpoint(endpointOption, resourceOption);
 			client.sendRequest(endpoint);
-			json.setJsonData(client.getBody());
-			Convertion convertion = new Convertion(client.getBody());
+			json.setJsonData(client.getResponseBody());
+			Convertion conversion = new Convertion(client.getResponseBody());
 
-			if (optionResource == 1) {
-				json.printConversionRate(convertion);
-			} else if (optionResource == 2) {
-				json.printConversion(convertion);
+			if (resourceOption == 1) {
+				return InfoDisplay.showConversionRate(conversion);
+			} else if (resourceOption == 2) {
+				return InfoDisplay.showConversionDetails(conversion);
 			}
 		}
+
+		return "";
 	}
 }

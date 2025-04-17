@@ -1,7 +1,14 @@
 package conversordemonedas.api.data;
 
+import com.google.gson.annotations.SerializedName;
+
 public record QuotaData(
-	int plan_quota,
-	int requests_remaining,
-	int refresh_day_of_month
+    @SerializedName("plan_quota")
+    int planQuota,
+
+    @SerializedName("requests_remaining")
+    int requestsRemaining,
+
+    @SerializedName("refresh_day_of_month")
+    int refreshDayOfMonth
 ) {}

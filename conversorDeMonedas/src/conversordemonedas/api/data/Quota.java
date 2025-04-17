@@ -10,9 +10,9 @@ public class Quota {
 	public Quota (String jsonData) {
 		this.gson = new Gson();
 		this.quotaData = this.gson.fromJson(jsonData, QuotaData.class);
-		this.plan_quota = quotaData.plan_quota();
-		this.requests_remaining = quotaData.requests_remaining();
-		this.refresh_day_of_month = quotaData.refresh_day_of_month();
+		this.plan_quota = quotaData.planQuota();
+		this.requests_remaining = quotaData.requestsRemaining();
+		this.refresh_day_of_month = quotaData.refreshDayOfMonth();
 	}
 
 	public int getPlanQuota() {

@@ -16,7 +16,7 @@ public class Coins {
 	}
 
 	private void loadCoins() {
-		for (ArrayList<String> lista : this.coinsData.supported_codes()) {
+		for (ArrayList<String> lista : this.coinsData.supportedCodes()) {
 			codeCoins.add(lista.getFirst());
 			nameCoins.add(lista.getLast());
 		}

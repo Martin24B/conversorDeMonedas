@@ -35,14 +35,13 @@ public class InfoDisplay {
 				---------------------------------------------------------------
 				🙏 MUCHAS GRACIAS POR SU VISITA — ¡QUE LO DISFRUTE!
 				================================================================
-				
-				
+
+
 				🔄Cargando, por favor espere...
 				""";
-
 		System.out.println(mensaje);
 	}
-	
+
 	public static void availableOption() {
 	    System.out.println("""
 	        📋 Opciones disponibles:
@@ -53,7 +52,7 @@ public class InfoDisplay {
 	        4️⃣  Finalizar.
 	        """);
 	}
-	
+
 	public static void availableOptionHistory() {
 	    System.out.println("""
 	        📋 Opciones disponibles:
@@ -73,7 +72,7 @@ public class InfoDisplay {
 
 	    System.out.println(endpoints);
 	}
-	
+
 	public static void availableResources() {
 	    System.out.println("""
 	        📌 Opciones disponibles para el recurso seleccionado:
@@ -94,56 +93,64 @@ public class InfoDisplay {
 				""");
 
 	    System.out.println("📄 Documentación: " + json.documentation());
-	    System.out.println("📜 Términos de uso: " + json.terms_of_use());
-	    System.out.println("📅 Fecha de última actualización: " + json.time_last_update_utc());
-	    System.out.println("🔄 Fecha de próxima actualización: " + json.time_next_update_utc());
+	    System.out.println("📜 Términos de uso: " + json.termsOfUse());
+	    System.out.println("📅 Fecha de última actualización: " + json.timeLastUpdateUtc());
+	    System.out.println("🔄 Fecha de próxima actualización: " + json.timeNextUpdateUtc());
 	}
 
-	public static void availableCoins(Coins coins, int limit) {
-		System.out.println ("💱Monedas disponibles:");
-		for (int pos = 0; pos < limit; pos++) {
-			System.out.println ("\n🧾 Nombre: " + coins.getNameCoins().get(pos));
-			System.out.println ("🆔 Codigo: " + coins.getCodeCoins().get(pos));
-		}
+	public static String availableCoins(Coins coins, int limit) {
+	    String result = "💱Monedas disponibles:\n";
+
+	    for (int pos = 0; pos < limit; pos++) {
+	        result += "\n🧾 Nombre: " + coins.getNameCoins().get(pos);
+	        result += "\n🆔 Codigo: " + coins.getCodeCoins().get(pos);
+	    }
+
+	    return result;
 	}
 
-	public static void showConversionRates (Convertion conversion, int limit) {
-		int pos = 0;
-		String baseCode = conversion.getBaseCode();
-		System.out.println ("1 " + baseCode + " equivale a: ");
-		
+	public static String showConversionRates(Convertion conversion, int limit) {
+	    int pos = 0;
+	    String baseCode = conversion.getBaseCode();
+	    String result = "1 " + baseCode + " equivale a:\n";
+
 	    for (String key : conversion.getConversionRates().keySet()) {
-			if (pos >= limit)
-				break;
+	        if (pos >= limit) break;
+	        Double value = conversion.getConversionRates().get(key);
+	        String formattedValue = String.format("%.2f", value);
+	        result += "\t🟰 " + formattedValue + " ➡️ " + key + "\n";
+	        pos++;
+	    }
 
-			Double value = conversion.getConversionRates().get(key);
-			System.out.println ("\t🟰 " + value + " ➡️ " + key);
-
-			pos++;
-		}
-	}
-	
-	public static void showConversionRate(Convertion conversion) {
-		String baseCode = conversion.getBaseCode();
-		System.out.println ("\nResultados:\n1 " + baseCode + " 🟰 " + conversion.getConversionRate() + " ➡️ " + conversion.getTargetCode());
+	    return result;
 	}
 
-	public static void showConversionDetails(Convertion convertion) {
-		System.out.println ("\n🔄Resultados de la conversion: ");
-	    System.out.println ("💱 Moneda base: " + convertion.getBaseCode());
-	    System.out.println ("🎯 Moneda destino: " + convertion.getTargetCode());
-	    System.out.println ("💰 Tasa de cambio: " + convertion.getConversionRate());
-	    System.out.println ("🔁 Resultado de la conversión: " + convertion.getConversionResult());
+	public static String showConversionRate(Convertion conversion) {
+	    String baseCode = conversion.getBaseCode();
+	    String formattedRate = String.format("%.2f", conversion.getConversionRate());
+	    return "\nResultados:\n1 " + baseCode + " 🟰 " +
+	            formattedRate + " ➡️ " + conversion.getTargetCode();
 	}
-	
-	public static void showQuotaDetails(Quota quota) {
-		System.out.println ("\nℹ️Datos del usuario:");
-	    System.out.println ("📦 Plan actual: " + quota.getPlanQuota());
-	    System.out.println ("📊 Cuota total disponible: " + quota.getRequestRemaining());
-	    System.out.println ("✅ Solicitudes realizadas: " + (quota.getPlanQuota () - quota.getRequestRemaining()));
-	    System.out.println ("🗓️ Día de reinicio mensual: " + quota.getRefreshDayOfMonth());
+
+	public static String showConversionDetails(Convertion convertion) {
+	    String formattedRate = String.format("%.2f", convertion.getConversionRate());
+	    String formattedResult = String.format("%.2f", convertion.getConversionResult());
+
+	    return "\n🔄Resultados de la conversion: \n" +
+	           "💱 Moneda base: " + convertion.getBaseCode() + "\n" +
+	           "🎯 Moneda destino: " + convertion.getTargetCode() + "\n" +
+	           "💰 Tasa de cambio: " + formattedRate + "\n" +
+	           "🔁 Resultado de la conversión: " + formattedResult;
 	}
-	
+
+	public static String showQuotaDetails(Quota quota) {
+	    return "\nℹ️Datos del usuario:\n" +
+	           "📦 Plan actual: " + quota.getPlanQuota() + "\n" +
+	           "📊 Cuota total disponible: " + quota.getRequestRemaining() + "\n" +
+	           "✅ Solicitudes realizadas: " + (quota.getPlanQuota() - quota.getRequestRemaining()) + "\n" +
+	           "🗓️ Día de reinicio mensual: " + quota.getRefreshDayOfMonth();
+	}
+
 	public static void showHistory(File[] files) {
 	    if (files != null && files.length > 0) {
 	        System.out.println("📜 Historial de operaciones:");
@@ -153,5 +160,21 @@ public class InfoDisplay {
 	            }
 	        }
 	    }
+	}
+	
+	public static void goodbyeMessage() {
+	    String message = """
+	        ================================================================
+	        👋 ¡Gracias por utilizar el Conversor de Divisas!
+	        Esperamos que haya sido de ayuda en sus operaciones financieras.
+	        
+	        📆 Recuerde que puede volver en cualquier momento.
+	        📜 Puede consultar el historial de operaciones en la carpeta:
+	        👉 users/history
+
+	        ¡Hasta la próxima! 🌍💱
+	        ================================================================
+	        """;
+	    System.out.println(message);
 	}
 }

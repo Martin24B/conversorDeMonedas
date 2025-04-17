@@ -1,5 +1,9 @@
 package conversordemonedas.api.data;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
-public record CoinsData(ArrayList<ArrayList<String>> supported_codes) {}
+public record CoinsData(
+    @SerializedName("supported_codes")
+    ArrayList<ArrayList<String>> supportedCodes
+) {}

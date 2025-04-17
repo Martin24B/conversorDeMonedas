@@ -1,4 +1,4 @@
-package conversordemonedas.api.exceptions;
+package conversordemonedas.api.exceptions; 
 
 public class FileError {
 
