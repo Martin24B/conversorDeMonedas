@@ -101,26 +101,26 @@ La aplicación incluye un **historial de operaciones**, separado por fecha (por 
 
 - **`latest`**  
 <p align="center">
-  <img src="conversorDeMonedas/img/primerConsulta.png" alt="Consulta con latest" width="600"/>
+  <img src="conversorDeMonedas/img/primerConsulta.png" alt="Consulta con latest" width="700"/>
 </p>
 
 - **`codes`**  
 <p align="center">
-  <img src="conversorDeMonedas/img/segundaConsulta.png" alt="Consulta con codes" width="600"/>
+  <img src="conversorDeMonedas/img/segundaConsulta.png" alt="Consulta con codes" width="700"/>
 </p>
 
 - **`pair`**  
 <p align="center">
-  <img src="conversorDeMonedas/img/tercerConsulta(1).png" alt="Consulta pair sin monto" width="600"/>
+  <img src="conversorDeMonedas/img/tercerConsulta(1).png" alt="Consulta pair sin monto" width="700"/>
 </p>
 
 <p align="center">
-  <img src="conversorDeMonedas/img/tercerConsulta(2).png" alt="Consulta pair con monto" width="600"/>
+  <img src="conversorDeMonedas/img/tercerConsulta(2).png" alt="Consulta pair con monto" width="700"/>
 </p>
 
 - **`quota`**  
 <p align="center">
-  <img src="conversorDeMonedas/img/cuartaConsulta.png" alt="Consulta de cuota actual" width="600"/>
+  <img src="conversorDeMonedas/img/cuartaConsulta.png" alt="Consulta de cuota actual" width="700"/>
 </p>
 
 ## Tutorial de Instalación
